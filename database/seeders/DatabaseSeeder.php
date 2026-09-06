@@ -2,14 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+// use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
      * Seed the application's database.
      */
@@ -17,9 +14,40 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // DB::table('people')->insert([
+        //     'FIO' => 'Алёша Попович',
+        //     'birth_date' => '2005-05-01',
+        // ]);
+        //
+        // DB::table('people')->insert([
+        //     'FIO' => 'Горыныч',
+        //     'birth_date' => '2006-03-16',
+        // ]);
+
+        // DB::table('activity_form')->insert([
+        //     'person_id' => '1',
+        //     'name' => 'Сбивание дубов',
+        //     'max_rate' => '88',
+        // ]);
+        //
+        // DB::table('activity_form')->insert([
+        //     'person_id' => '2',
+        //     'name' => 'Кунг-фу',
+        //     'max_rate' => '96',
+        // ]);
+
+        // DB::table('activity')->insert([
+        //     'person_id' => '1',
+        //     'activity_form_id' => '1',
+        //     'date' => '2005-05-06',
+        //     'rate' => '60',
+        // ]);
+        //
+        // DB::table('activity')->insert([
+        //     'person_id' => '2',
+        //     'activity_form_id' => '2',
+        //     'date' => '2006-05-16',
+        //     'rate' => '30',
         ]);
     }
 }
