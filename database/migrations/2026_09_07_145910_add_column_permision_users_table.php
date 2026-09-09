@@ -8,13 +8,11 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
+    // В будущем можно сделать миграцию для темы
     public function up(): void
     {
-        Schema::create('people', function (Blueprint $table) {
-            $table->id();
-            $table->string('FIO');
-            $table->date('birth_date');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('permision')->unsigned()->comment('0 - user, 1 - admin');
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('people');
+        Schema::table('users', function ($table) {
+            $table->dropColumn('permision');
+        });
     }
 };

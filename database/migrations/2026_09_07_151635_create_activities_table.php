@@ -10,12 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('activity', function (Blueprint $table) {
+        Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('person_id')->constrained()->onDelete('cascade');
-            $table->foreignId('activity_form_id')->constrained('activity_form', 'id')->onDelete('cascade');
-            $table->date('date');
-            $table->integer('rate')->comment('Фактический балл');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('activity');
+        Schema::dropIfExists('activities');
     }
 };

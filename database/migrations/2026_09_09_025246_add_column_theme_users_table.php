@@ -10,12 +10,8 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('activity_form', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('person_id')->constrained()->onDelete('cascade');
-            $table->string('name');
-            $table->integer('max_rate')->unsigned();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('theme')->default('standart')->comment('Тема пользователя');
         });
     }
 
@@ -24,6 +20,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('activity_form');
+        Schema::table('users', function ($table) {
+            $table->dropColumn('theme');
+        });
     }
 };
