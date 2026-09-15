@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('task_form_id')->constrained('task_forms', 'id')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('name');
 
             $table->integer('status')->unsigned()->default('0')->comment('0 - Надо сделать, 1 - В процессе, 2 - Сделанно');
@@ -23,6 +23,7 @@ return new class extends Migration {
 
             $table->date('date_start');
             $table->date('date_end')->nullable();
+            $table->foreignId('parent_id')->constrained('tasks', 'id')->onDelete('cascade')->nullable();
 
             $table->dateTime('completed_at')->nullable();
             $table->timestamps();
