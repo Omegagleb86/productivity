@@ -23,7 +23,7 @@ return new class extends Migration {
 
             $table->date('date_start');
             $table->date('date_end')->nullable();
-            $table->foreignId('parent_id')->constrained('tasks', 'id')->onDelete('cascade')->nullable();
+            $table->foreignId('parent_id')->nullable()->constrained('tasks', 'id')->onDelete('cascade');
 
             $table->dateTime('completed_at')->nullable();
             $table->timestamps();
