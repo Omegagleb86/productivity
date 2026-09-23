@@ -21,6 +21,7 @@
                 <td>date_end</td>
                 <td>parent_id</td>
                 <td>completed_at</td>
+                <td>Действия</td>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,10 @@
                     <td>{{ $task->date_end }}</td>
                     <td>{{ $task->parent_id }}</td>
                     <td>{{ $task->compleated_at }}</td>
+                    <td>
+                        <a href="{{url('task/destroy/'.$task->id)}}">Удалить</a>
+                        <a href="{{url('task/edit/'.$task->id)}}">Редактировать</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
