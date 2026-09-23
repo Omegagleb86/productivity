@@ -15,15 +15,15 @@ return new class extends Migration {
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('name');
 
-            $table->integer('status')->unsigned()->default('0')->comment('0 - Надо сделать, 1 - В процессе, 2 - Сделанно');
-            $table->integer('score_points')->unsigned();
+            $table->integer('status')->unsignedInteger()->default(0)->comment('0 - Надо сделать, 1 - В процессе, 2 - Сделанно');
+            $table->integer('score_points')->unsignedInteger();
 
             $table->boolean('importance')->default(false);
             $table->boolean('urgency')->default(false);
 
             $table->date('date_start');
             $table->date('date_end')->nullable();
-            $table->foreignId('parent_id')->nullable()->constrained('tasks', 'id')->onDelete('cascade');
+            $table->foreignId('parent_id')->nullable()->constrained('tasks', 'id');
 
             $table->dateTime('completed_at')->nullable();
             $table->timestamps();
