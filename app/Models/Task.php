@@ -9,6 +9,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Task extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'category_id',
+        'status',
+        'score_points',
+        'importance',
+        'urgency',
+        'date_start',
+        'date_end',
+        'parent_id',
+        'completed_at',
+    ];
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

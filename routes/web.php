@@ -14,5 +14,11 @@ Route::get('/hello', function () {
 
 Route::get('category', [CategoryController::class, 'index']);
 Route::get('category/{id}', [CategoryController::class, 'show']);
+
+Route::get('task/create', [TaskController::class, 'create']);
+Route::get('task/destroy/{id}', [TaskController::class, 'destroy']);
+Route::get('task/edit/{id}', [TaskController::class, 'edit']);
+Route::post('task/update/{id}', [TaskController::class, 'update']);
+Route::post('task', [TaskController::class, 'store']);
 Route::get('task', [TaskController::class, 'index']);
 Route::get('task/{id}', [TaskController::class, 'show']);
