@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Task Create</title>
-        <style> .is_invalid{color: red;} </style>
+        <style> .is-invalid{color: red;} </style>
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
