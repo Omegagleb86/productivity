@@ -14,7 +14,7 @@
         <label>Наименование</label>
         <input type="text" name="name" value="@if (old('name')) {{old('name')}} @else {{$task->name}} @endif">
         @error('name')
-        <div class="is_invalid">
+        <div class="is-invalid">
             {{$message}}
         </div>
         @enderror
@@ -31,7 +31,7 @@
             @endforeach
         </select>
         @error('category_id')
-        <div class="is_invalid">
+        <div class="is-invalid">
             {{$message}}
         </div>
         @enderror
@@ -44,7 +44,7 @@
                 @endforeach
             </select>
         @error('status')
-        <div class="is_invalid">
+        <div class="is-invalid">
             {{$message}}
         </div>
         @enderror
@@ -57,7 +57,7 @@
                 @endforeach
             </select>
         @error('score_points')
-        <div class="is_invalid">
+        <div class="is-invalid">
             {{$message}}
         </div>
         @enderror
@@ -65,7 +65,7 @@
         <label>Важность</label>
         <input type="checkbox" name="importance" value="1" @checked(old('importance', $task->importance))>
         @error('importance')
-        <div class="is_invalid">
+        <div class="is-invalid">
             {{$message}}
         </div>
         @enderror
@@ -73,7 +73,7 @@
         <label>Срочность</label>
         <input type="checkbox" name="urgency" value="1" @checked(old('urgency', $task->urgency))>
         @error('urgency')
-        <div class="is_invalid">
+        <div class="is-invalid">
             {{$message}}
         </div>
         @enderror
@@ -81,7 +81,7 @@
         <label>Дата начала</label>
         <input type="date" name="date_start" value="{{ old('date_start', $task->date_start) }}">
         @error('date_start')
-        <div class="is_invalid">
+        <div class="is-invalid">
             {{$message}}
         </div>
         @enderror
@@ -89,7 +89,7 @@
         <label>Дедлайн</label>
         <input type="date" name="date_end" value="{{ old('date_end', $task->date_end) }}">
         @error('date_end')
-        <div class="is_invalid">
+        <div class="is-invalid">
             {{$message}}
         </div>
         @enderror
