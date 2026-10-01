@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Task;
+use Illuminate\Support\Facades\Gate;
 
 class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $perpage = $request->perpage ?? 2;
         return view('tasks', [
-            'tasks' => Task::all(),
+            'tasks' => Task::paginate($perpage)->withQueryString(),
         ]);
     }
 
@@ -65,6 +67,10 @@ class TaskController extends Controller
      */
     public function edit(string $id)
     {
+        if (! Gate::allows('edit-task', Task::all()->where('id', $id)->first())) {
+            return redirect('/error')->with('message', 'У вас нет разрешения на изменение карточки номера ' . $id);
+        }
+
         return view('task_edit', [
             'task' => Task::all()->where('id', $id)->first(),
             'categories' => Category::all(),
@@ -106,6 +112,10 @@ class TaskController extends Controller
      */
     public function destroy(string $id)
     {
+        if (! Gate::allows('destroy-task', Task::all()->where('id', $id)->first())) {
+            return redirect('/error')->with('message', 'У вас нет разрешения на удаления карточки номер ' . $id);
+        }
+
         Task::destroy($id);
         return redirect('task');
     }

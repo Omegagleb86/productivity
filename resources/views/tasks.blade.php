@@ -46,5 +46,18 @@
             @endforeach
         </tbody>
     </table>
+        <nav>
+        {{$tasks->links()}}
+        </nav>
+        <p>Количество элементов на странице:</p>
+        <form method="get" action="{{url('task')}}">
+            <select name="perpage">
+                <option value="1" @if ($tasks->perPage() == 1) selected @endif>1</option>
+                <option value="2" @if ($tasks->perPage() == 2) selected @endif>2</option>
+                <option value="3" @if ($tasks->perPage() == 3) selected @endif>3</option>
+                <option value="4" @if ($tasks->perPage() == 4) selected @endif>4</option>
+            </select>
+            <input type="submit" value="Изменить">
+        </form>
     </body>
 </html>
